@@ -1,3 +1,8 @@
+import com.mysql.cj.jdbc.MysqlDataSource;
+
+import javax.sql.DataSource;
+
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,4 +18,11 @@
 
 
 public class Test {
+
+    public static void main(String[] args) {
+        // datasource -> the location of database
+        DataSource ds = new MysqlDataSource();
+        ((MysqlDataSource)ds).setURL("jdbc:mysql://127.0.0.1:3306/test_7_12");
+    }
+
 }
