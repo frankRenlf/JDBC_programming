@@ -2,6 +2,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
@@ -28,8 +29,19 @@ public class Test {
         ((MysqlDataSource) ds).setUser("root");
         ((MysqlDataSource) ds).setPassword("123456");
 
+        // build connection
         Connection con = ds.getConnection();
         System.out.println(con);
+
+        // do statement
+        String sql = "insert into student values(null,01111,'frank',null,1)";
+        PreparedStatement statement = con.prepareStatement(sql);
+        int n = statement.executeUpdate();
+        System.out.println(n);
+
+        // close statement and connection
+        statement.close();
+        con.close();
     }
 
 }
