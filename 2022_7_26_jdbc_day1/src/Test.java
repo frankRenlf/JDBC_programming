@@ -22,7 +22,7 @@ public class Test {
     public static void main(String[] args) {
         // datasource -> the location of database
         DataSource ds = new MysqlDataSource();
-        ((MysqlDataSource)ds).setURL("jdbc:mysql://127.0.0.1:3306/test_7_12");
+        ((MysqlDataSource) ds).setURL("jdbc:mysql://127.0.0.1:3306/test_7_12?characterEncoding=utf8&useSSL=false");
     }
 
 }
