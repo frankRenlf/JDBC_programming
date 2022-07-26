@@ -1,6 +1,8 @@
 import com.mysql.cj.jdbc.MysqlDataSource;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 
 /**
@@ -19,10 +21,15 @@ import javax.sql.DataSource;
 
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // datasource -> the location of database
         DataSource ds = new MysqlDataSource();
         ((MysqlDataSource) ds).setURL("jdbc:mysql://127.0.0.1:3306/test_7_12?characterEncoding=utf8&useSSL=false");
+        ((MysqlDataSource) ds).setUser("root");
+        ((MysqlDataSource) ds).setPassword("123456");
+
+        Connection con = ds.getConnection();
+        System.out.println(con);
     }
 
 }
