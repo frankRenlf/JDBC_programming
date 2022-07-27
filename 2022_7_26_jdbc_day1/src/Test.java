@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 
 /**
@@ -34,9 +35,19 @@ public class Test {
         System.out.println(con);
 
         // do statement
-        String sql = "insert into student values(null,01111,'frank',null,1)";
+        Scanner sc = new Scanner(System.in);
+        String s1 = sc.next();
+        String s2 = sc.next();
+        int n1 = sc.nextInt();
+        String sql = "insert into student values(null,?,?,null,?)";
+
         PreparedStatement statement = con.prepareStatement(sql);
+        statement.setString(1, s1);
+        statement.setString(2, s2);
+        statement.setInt(3, n1);
+        System.out.println(statement);
         int n = statement.executeUpdate();
+        
         System.out.println(n);
 
         // close statement and connection
