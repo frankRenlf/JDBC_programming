@@ -47,7 +47,7 @@ public class Test {
         statement.setInt(3, n1);
         System.out.println(statement);
         int n = statement.executeUpdate();
-        
+
         System.out.println(n);
 
         // close statement and connection
