@@ -3,6 +3,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -23,7 +24,50 @@ import java.util.Scanner;
 
 public class Test {
 
+
     public static void main(String[] args) throws SQLException {
+        // datasource -> the location of database
+        DataSource ds = new MysqlDataSource();
+        ((MysqlDataSource) ds).setURL("jdbc:mysql://127.0.0.1:3306/test_7_12?characterEncoding=utf8&useSSL=false");
+        ((MysqlDataSource) ds).setUser("root");
+        ((MysqlDataSource) ds).setPassword("123456");
+
+        // build connection
+        Connection con = ds.getConnection();
+        System.out.println(con);
+
+        // do statement
+        String sql = "select * from student";
+
+        PreparedStatement statement = con.prepareStatement(sql);
+        System.out.println(statement);
+        ResultSet rs = statement.executeQuery();
+
+        while (rs.next()) {
+            int n = rs.getInt("id");
+            String name = rs.getString("name");
+            System.out.println(n + ": " + name);
+        }
+
+        // close statement and connection
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("数据库错误");
+        }
+    }
+
+
+    public static void main2(String[] args) throws SQLException {
         // datasource -> the location of database
         DataSource ds = new MysqlDataSource();
         ((MysqlDataSource) ds).setURL("jdbc:mysql://127.0.0.1:3306/test_7_12?characterEncoding=utf8&useSSL=false");
