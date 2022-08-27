@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/2022_6_27/2022_6_27.iml" filepath="$PROJECT_DIR$/2022_6_27/2022_6_27.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2022_7_26_jdbc_day1/2022_7_26_jdbc_day1.iml" filepath="$PROJECT_DIR$/2022_7_26_jdbc_day1/2022_7_26_jdbc_day1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JDBC_programming.iml" filepath="$PROJECT_DIR$/.idea/JDBC_programming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc_demo1/jdbc_demo1.iml" filepath="$PROJECT_DIR$/jdbc_demo1/jdbc_demo1.iml" />
+    </modules>
+  </component>
+</project>

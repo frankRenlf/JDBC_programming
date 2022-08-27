@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-8.0.26">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/2022_6_27/lib/mysql-connector-java-8.0.26.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
