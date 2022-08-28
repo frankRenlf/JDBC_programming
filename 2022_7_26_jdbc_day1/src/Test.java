@@ -40,6 +40,7 @@ public class Test {
         String sql = "select * from student";
 
         PreparedStatement statement = con.prepareStatement(sql);
+//        statement.setInt();
         System.out.println(statement);
         ResultSet rs = statement.executeQuery();
 
