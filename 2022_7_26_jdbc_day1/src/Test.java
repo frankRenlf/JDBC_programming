@@ -38,11 +38,7 @@ public class Test {
         System.out.println(con);
 
         // do statement
-        String sql = "SELECT\n" +
-                "\tstudent.id,student.name\n" +
-                "FROM\n" +
-                "\tstudent\n" +
-                "\tINNER JOIN classes ON student.classes_id = classes.id;";
+        String sql = "SELECT classes.id,classes.name,count(student.id) as ci FROM student INNER JOIN classes ON student.classes_id = classes.id group by classes.id;";
 
 
         PreparedStatement statement = con.prepareStatement(sql);
@@ -59,7 +55,8 @@ public class Test {
 
             int n = rs.getInt("id");
             String name = rs.getString(2);
-            System.out.println(n + ": " + name);
+            int m = rs.getInt("ci");
+            System.out.println(n + ": " + name + ": " + m);
         }
 
         // close statement and connection
