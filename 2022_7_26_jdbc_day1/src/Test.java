@@ -38,7 +38,7 @@ public class Test {
         System.out.println(con);
 
         // do statement
-        String sql = "SELECT classes.id,classes.name,count(student.id) as ci FROM student INNER JOIN classes ON student.classes_id = classes.id group by classes.id;";
+        String sql = "SELECT classes.id,classes.name,count(student.id) as ci FROM student INNER JOIN classes ON student.classes_id = classes.id group by classes.id order by ci desc;";
 
 
         PreparedStatement statement = con.prepareStatement(sql);
@@ -56,7 +56,7 @@ public class Test {
             int n = rs.getInt("id");
             String name = rs.getString(2);
             int m = rs.getInt("ci");
-            System.out.println(n + ": " + name + ": " + m);
+            System.out.println(n + ": " + name + ", num: " + m);
         }
 
         // close statement and connection
