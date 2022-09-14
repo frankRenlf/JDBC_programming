@@ -30,23 +30,35 @@ public class Test {
         DataSource ds = new MysqlDataSource();
         ((MysqlDataSource) ds).setURL("jdbc:mysql://127.0.0.1:3306/test_7_12?characterEncoding=utf8&useSSL=false");
         ((MysqlDataSource) ds).setUser("root");
-        ((MysqlDataSource) ds).setPassword("123456");
+        ((MysqlDataSource) ds).setPassword("RLFrlf930Frank_wjq");
 
         // build connection
         Connection con = ds.getConnection();
+
         System.out.println(con);
 
         // do statement
-        String sql = "select * from student";
+        String sql = "SELECT\n" +
+                "\tstudent.id,student.name\n" +
+                "FROM\n" +
+                "\tstudent\n" +
+                "\tINNER JOIN classes ON student.classes_id = classes.id;";
+
 
         PreparedStatement statement = con.prepareStatement(sql);
 //        statement.setInt();
+//        Scanner sc = new Scanner(System.in);
+//        for(int i =1;i<=4;i++){
+//            statement.setString(i,sc.nextLine());
+//        }
+//        statement.setString(1,"student.id as si,student.name as sn");
         System.out.println(statement);
         ResultSet rs = statement.executeQuery();
-
+        System.out.println(rs);
         while (rs.next()) {
+
             int n = rs.getInt("id");
-            String name = rs.getString("name");
+            String name = rs.getString(2);
             System.out.println(n + ": " + name);
         }
 
